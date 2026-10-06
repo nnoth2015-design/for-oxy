@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#120d20" />
+<title>For Oxy 💜 — From Huzy</title>
+
+<style>
+:root{
+  --bg:#0b0713;
+  --bg2:#1a0c26;
+  --pink:#ff76b8;
+  --pink2:#ffb7da;
+  --purple:#9b7aff;
+  --blue:#75d9ff;
+  --gold:#ffd56a;
+  --mint:#8df3c7;
+  --white:#fff9ff;
+  --soft:#eadff0;
+  --muted:#c6b6cf;
+  --glass:rgba(255,255,255,.075);
+  --border:rgba(255,255,255,.13);
+  --shadow:0 28px 100px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--white);
+  font-family:Inter,ui-rounded,"SF Pro Rounded",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 12% 5%,rgba(255,118,184,.18),transparent 25%),
+    radial-gradient(circle at 88% 8%,rgba(117,217,255,.14),transparent 24%),
+    radial-gradient(circle at 50% 85%,rgba(155,122,255,.18),transparent 32%),
+    linear-gradient(140deg,var(--bg),var(--bg2));
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.17;
+  background-image:radial-gradient(circle,#fff 1px,transparent 1px);
+  background-size:38px 38px;
+  animation:stars 24s linear infinite;
+}
+@keyframes stars{to{transform:translateY(38px)}}
+
+#heartsLayer,#sparkLayer{
+  position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden;
+}
+.float-heart,.spark{
+  position:absolute;
+  animation:floatUp linear forwards;
+  opacity:0;
+}
+.float-heart{font-size:18px}
+@keyframes floatUp{
+  0%{transform:translate3d(0,30px,0) scale(.7) rotate(0);opacity:0}
+  12%{opacity:.85}
+  70%{opacity:.7}
+  100%{transform:translate3d(var(--dx),-110vh,0) scale(1.35) rotate(180deg);opacity:0}
+}
+
+.app{
+  width:min(1180px,100%);
+  margin:auto;
+  padding:24px 18px 90px;
+}
+.page{
+  min-height:calc(100vh - 45px);
+  display:none;
+  align-items:center;
+  animation:pageIn .7s cubic-bezier(.19,1,.22,1);
+}
+.page.active{display:flex}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(30px) scale(.985)}
+  to{opacity:1;transform:none}
+}
+.panel{
+  position:relative;width:100%;overflow:hidden;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(255,255,255,.105),rgba(255,255,255,.04));
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius:34px;padding:clamp(22px,5vw,62px);
+  box-shadow:var(--shadow);
+}
+.panel:before{
+  content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+  right:-120px;top:-130px;background:rgba(255,118,184,.09);filter:blur(8px);
+}
+.panel:after{
+  content:"";position:absolute;width:240px;height:240px;border-radius:50%;
+  left:-100px;bottom:-120px;background:rgba(117,217,255,.06);filter:blur(10px);
+}
+
+h1,h2,h3,p{position:relative}
+h1{
+  margin:0 0 18px;
+  font-size:clamp(3rem,10vw,7.6rem);
+  line-height:.86;
+  letter-spacing:-.065em;
+}
+h2{
+  margin:0 0 18px;
+  font-size:clamp(2.2rem,6.5vw,4.9rem);
+  line-height:.95;
+  letter-spacing:-.045em;
+}
+h3{font-size:1.2rem;margin-bottom:8px}
+.gradient{
+  background:linear-gradient(90deg,#fff,#ffd6e9,#c9baff,#9fe8ff,#fff);
+  background-size:240% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 7s linear infinite;
+}
+@keyframes shimmer{to{background-position:240% 0}}
+
+.center{text-align:center}
+.center .sub{margin-left:auto;margin-right:auto}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 14px;border:1px solid var(--border);
+  background:rgba(255,255,255,.06);
+  border-radius:999px;color:#f5eaf8;font-size:.88rem;font-weight:800;
+  margin-bottom:18px;position:relative;
+}
+.sub{
+  color:var(--soft);max-width:820px;
+  font-size:clamp(1rem,2.25vw,1.22rem);
+  line-height:1.82;
+}
+.mini{
+  color:var(--muted);font-size:.88rem;line-height:1.6;
+}
+.actions{
+  position:relative;z-index:2;
+  display:flex;gap:11px;flex-wrap:wrap;margin-top:30px;
+}
+.center .actions{justify-content:center}
+button{
+  font:inherit;appearance:none;border:0;cursor:pointer;
+  border-radius:999px;padding:15px 22px;font-weight:900;
+  color:#170c21;
+  background:linear-gradient(135deg,#ffd2e9,#c6b9ff);
+  box-shadow:0 12px 34px rgba(155,122,255,.22);
+  transition:.2s ease;
+}
+button:hover{transform:translateY(-3px) scale(1.02)}
+button:active{transform:scale(.98)}
+button.secondary{
+  color:#fff;
+  background:rgba(255,255,255,.065);
+  border:1px solid var(--border);
+  box-shadow:none;
+}
+button.danger{
+  color:white;background:linear-gradient(135deg,#f06c9f,#9f65ff);
+}
+
+.top-orbs span{
+  position:absolute;font-size:clamp(1.8rem,4vw,3rem);
+  animation:orb 4.5s ease-in-out infinite;
+  z-index:1;
+}
+.top-orbs span:nth-child(1){left:7%;top:12%;animation-delay:-.5s}
+.top-orbs span:nth-child(2){right:8%;top:17%;animation-delay:-2s}
+.top-orbs span:nth-child(3){left:10%;bottom:12%;animation-delay:-3.1s}
+.top-orbs span:nth-child(4){right:11%;bottom:14%;animation-delay:-1.2s}
+@keyframes orb{50%{transform:translateY(-15px) rotate(7deg)}}
+
+.hero-badge{
+  font-weight:950;
+  font-size:clamp(1.3rem,4vw,2.1rem);
+  margin:16px 0;
+}
+.big-heart{
+  font-size:clamp(5rem,16vw,9rem);
+  line-height:1;
+  margin:10px 0 4px;
+  display:inline-block;
+  filter:drop-shadow(0 22px 35px rgba(255,118,184,.28));
+  animation:heartBeat 1.55s ease-in-out infinite;
+  cursor:pointer;user-select:none;
+}
+@keyframes heartBeat{
+  0%,100%{transform:scale(1)}
+  12%{transform:scale(1.08)}
+  25%{transform:scale(.98)}
+  36%{transform:scale(1.12)}
+}
+
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px;position:relative;z-index:2;
+}
+.stat{
+  border:1px solid var(--border);background:var(--glass);
+  padding:17px;border-radius:23px;text-align:center;
+}
+.stat b{display:block;font-size:1.15rem;margin-bottom:4px}.stat small{color:var(--muted)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{
+  padding:22px;border-radius:24px;
+  border:1px solid var(--border);background:var(--glass);
+  transition:.22s ease;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}
+.card p{margin:8px 0 0;color:var(--soft);line-height:1.7}
+.card .icon{font-size:2.6rem;margin-bottom:12px}
+.glow{
+  box-shadow:0 0 0 rgba(255,118,184,0);
+}
+.glow.selected{
+  box-shadow:0 0 35px rgba(255,118,184,.16);
+  border-color:rgba(255,182,218,.45);
+}
+
+.timeline{display:grid;gap:14px;margin-top:28px}
+.memory{
+  display:grid;grid-template-columns:auto 1fr;gap:15px;
+  padding:20px;border-radius:24px;
+  background:rgba(255,255,255,.058);border:1px solid var(--border);
+}
+.memory .icon{
+  width:54px;height:54px;display:grid;place-items:center;
+  border-radius:17px;background:linear-gradient(135deg,rgba(255,118,184,.22),rgba(155,122,255,.18));
+  font-size:1.55rem
+}
+.memory p{margin:5px 0 0;color:var(--soft);line-height:1.72}
+
+.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:28px}
+.gift{
+  min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:20px;border-radius:26px;
+  border:1px solid var(--border);background:rgba(255,255,255,.065);
+  cursor:pointer;transition:.25s ease;
+}
+.gift:hover{transform:translateY(-7px)}
+.gift .emoji{font-size:4rem;transition:.4s}
+.gift.open .emoji{transform:scale(1.18) rotate(8deg)}
+.reveal{max-height:0;overflow:hidden;opacity:0;transition:.35s;line-height:1.6;color:var(--soft)}
+.gift.open .reveal{max-height:140px;opacity:1;margin-top:12px}
+
+.mood-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:22px}
+.mood{
+  padding:19px;border-radius:22px;border:1px solid var(--border);
+  background:rgba(255,255,255,.055);cursor:pointer;transition:.22s;
+}
+.mood:hover,.mood.active{transform:translateY(-4px);background:rgba(255,255,255,.095)}
+.mood span{font-size:2rem}.mood b{display:block;margin-top:7px}
+.message-box{
+  margin-top:18px;min-height:116px;padding:22px;border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,118,184,.12),rgba(155,122,255,.12));
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#f4e8f7;line-height:1.72;font-size:1.06rem;
+}
+
+.jar{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:26px;
+}
+.note{
+  min-height:126px;padding:19px;border-radius:22px;
+  border:1px solid var(--border);background:rgba(255,255,255,.055);
+  transition:.35s;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.note.locked{filter:blur(5px);opacity:.45;transform:scale(.99)}
+.note.unlocked{filter:none;opacity:1;transform:none;background:rgba(255,118,184,.095)}
+
+.heart-meter{
+  height:16px;max-width:600px;margin:18px auto 0;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid var(--border);overflow:hidden;
+}
+.heart-meter span{
+  display:block;width:0;height:100%;
+  background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));
+  transition:.28s;border-radius:inherit;
+}
+
+.slider-wrap{margin-top:24px}
+input[type=range]{width:100%;accent-color:#ff76b8}
+.slider-result{
+  margin-top:10px;text-align:center;color:var(--soft);font-weight:800;min-height:28px
+}
+
+.letter{
+  margin-top:26px;max-height:66vh;overflow:auto;padding-right:9px;
+  color:#f0e5f3;line-height:1.95;font-size:1.03rem;
+}
+.letter::-webkit-scrollbar{width:8px}
+.letter::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px}
+.signature{
+  margin-top:28px;font-size:1.22rem;font-weight:950;color:white
+}
+
+.secret{
+  max-height:0;opacity:0;overflow:hidden;transition:.55s ease;
+}
+.secret.show{max-height:500px;opacity:1;margin-top:22px}
+.secret-box{
+  padding:23px;border-radius:25px;
+  border:1px solid rgba(255,182,218,.25);
+  background:linear-gradient(135deg,rgba(255,118,184,.13),rgba(155,122,255,.13));
+  line-height:1.8;color:#f4e8f7;
+}
+
+.progress{
+  position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:7px;padding:9px 12px;border-radius:999px;
+  background:rgba(10,6,17,.52);border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(10px);z-index:40
+}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:.25s}
+.dot.active{background:#fff;transform:scale(1.4)}
+
+.nav{
+  position:fixed;top:14px;right:14px;z-index:40;display:flex;gap:8px
+}
+.nav button{padding:10px 13px;font-size:.82rem}
+.nav button:disabled{opacity:.28;cursor:not-allowed;transform:none}
+
+#confettiCanvas{
+  position:fixed;inset:0;width:100%;height:100%;
+  pointer-events:none !important;z-index:100
+}
+.hide{display:none!important}
+
+@media(max-width:760px){
+  .app{padding:58px 12px 84px}
+  .panel{padding:24px 17px;border-radius:25px}
+  .stats,.grid-3,.grid-2,.gift-grid,.mood-grid,.jar{grid-template-columns:1fr}
+  .page{min-height:calc(100vh - 70px)}
+  .letter{max-height:64vh;font-size:.98rem}
+  .actions button{flex:1 1 100%}
+  .nav{top:8px;right:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+<div id="heartsLayer"></div>
+<div id="sparkLayer"></div>
+<canvas id="confettiCanvas"></canvas>
+
+<div class="nav">
+  <button class="secondary" id="prevBtn" onclick="prevPage()">←</button>
+  <button class="secondary" id="nextBtn" onclick="nextPage()">→</button>
+</div>
+
+<main class="app">
+
+<!-- PAGE 1 -->
+<section class="page active">
+  <div class="panel center">
+    <div class="top-orbs"><span>🎈</span><span>✨</span><span>🧸</span><span>💜</span></div>
+    <div class="pill">A little birthday universe made for one person 🌙</div>
+    <div class="hero-badge">For OXY — from HUZY</div>
+    <h1 class="gradient">Happy Birthday,<br>Oxy. 🎂💜</h1>
+    <p class="sub">
+      This isn't just a birthday wish.<br>
+      It's a tiny universe made out of our chaos, our memories, our stupid fights,
+      our soft moments, our distance, our comebacks — and all the care I still have for you.
+    </p>
+    <div class="big-heart" onclick="heartExplosion(this)">💗</div>
+    <div class="mini">tap the heart. yes, I'm being dramatic. let me. 😭</div>
+    <div class="actions">
+      <button id="enterUniverseBtn" type="button">Enter Oxy's birthday universe ✨</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Chapter 01 • The boy behind the name 🫶</div>
+    <h2 class="gradient">Oxy, today is about <i>you</i>.</h2>
+    <p class="sub">
+      Before all the memories, before the fights, before the breakups and patch-ups,
+      before Instagram, before everything became complicated — you were simply you.
+      A person I met unexpectedly and somehow never managed to completely forget.
+    </p>
+
+    <div class="grid-3" style="margin-top:28px">
+      <div class="card glow"><div class="icon">🌻</div><h3>I hope you feel proud.</h3><p>Not only when you win, but when you keep going after difficult days. You deserve credit for becoming who you are.</p></div>
+      <div class="card glow"><div class="icon">🫂</div><h3>I hope you feel cared for.</h3><p>Not judged. Not pressured. Just genuinely cared for — in the quiet little ways that make a person feel safe.</p></div>
+      <div class="card glow"><div class="icon">🌙</div><h3>I hope you feel peaceful.</h3><p>May this year give your mind more calm, your heart more softness, and your life more reasons to smile without forcing it.</p></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>🇮🇳 Huzy</b><small>India</small></div>
+      <div class="stat"><b>🇵🇰 Oxy</b><small>Pakistan</small></div>
+      <div class="stat"><b>🎮 1 random game</b><small>where it started</small></div>
+      <div class="stat"><b>∞ times</b><small>we came back</small></div>
+    </div>
+
+    <div class="actions">
+      <button onclick="nextPage()">I have memories to show you →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Chapter 02 • Our accidentally epic lore 🎮</div>
+    <h2 class="gradient">Who knew Blockman Go would do all that?</h2>
+    <p class="sub">Honestly, our origin story is kind of ridiculous. Which makes it very us.</p>
+
+    <div class="timeline">
+      <div class="memory"><div class="icon">🎮</div><div><b>The Blockman Go beginning</b><p>Two people from different sides of a border met inside a game. It should've been a normal little interaction. Somehow it became the opening chapter of us.</p></div></div>
+      <div class="memory"><div class="icon">💬</div><div><b>The endless talking</b><p>We went from game conversations to actually wanting to know each other, joke with each other, irritate each other, and keep coming back for another conversation.</p></div></div>
+      <div class="memory"><div class="icon">💥</div><div><b>The legendary fights</b><p>We definitely tested each other's patience. Sometimes we were dramatic. Sometimes stubborn. Sometimes both of us were simply too emotional and too convinced we were right. 😭</p></div></div>
+      <div class="memory"><div class="icon">🩹</div><div><b>Breakup. Patch-up. Repeat.</b><p>Our relationship apparently came with a built-in “try again?” button. We left, missed each other, talked again, tried again, and somehow kept writing more chapters.</p></div></div>
+      <div class="memory"><div class="icon">📸</div><div><b>The Instagram era</b><p>Eventually our little game world wasn't enough. We moved to Instagram, where the connection started following us outside the place where it began.</p></div></div>
+      <div class="memory"><div class="icon">💗</div><div><b>And somehow… we're here</b><p>After millions of attempts, misunderstandings, goodbyes, comebacks, and all that beautiful mess — I get to be here on your birthday again.</p></div></div>
+    </div>
+
+    <div class="actions">
+      <button onclick="nextPage()">Okay, birthday boy. Choose your mood →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Chapter 03 • Pick your emotional damage 😭💗</div>
+    <h2 class="gradient">How are you feeling today?</h2>
+    <p class="sub">Choose a mood. Huzy has a message prepared for literally every version of Oxy.</p>
+
+    <div class="mood-grid">
+      <div class="mood" onclick="pickMood(this,'happy')"><span>😎</span><b>I'm feeling cool.</b></div>
+      <div class="mood" onclick="pickMood(this,'soft')"><span>🥺</span><b>I'm feeling soft.</b></div>
+      <div class="mood" onclick="pickMood(this,'chaos')"><span>😭</span><b>I'm here to cause chaos.</b></div>
+      <div class="mood" onclick="pickMood(this,'tired')"><span>😴</span><b>I'm tired.</b></div>
+      <div class="mood" onclick="pickMood(this,'romantic')"><span>💗</span><b>I'm feeling romantic.</b></div>
+      <div class="mood" onclick="pickMood(this,'curious')"><span>👀</span><b>I'm nosy. Tell me.</b></div>
+    </div>
+
+    <div class="message-box" id="moodMessage">
+      Pick one, Oxy. I promise there is no wrong answer. 😌
+    </div>
+
+    <div class="actions">
+      <button onclick="nextPage()">Now… open your presents 🎁</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Chapter 04 • Birthday gifts 🎁</div>
+    <h2 class="gradient">Three gifts. No cheating.</h2>
+    <p class="sub">Tap them one by one. I put a little bit of me inside each one.</p>
+
+    <div class="gift-grid">
+      <div class="gift" onclick="openGift(this);createHearts(5)">
+        <div class="emoji">🎁</div><b>A year of good days</b>
+        <div class="reveal">I wish you days that feel easy, people who make you laugh, opportunities that make you excited, and nights where your heart finally feels quiet. 🌙</div>
+      </div>
+      <div class="gift" onclick="openGift(this);createHearts(5)">
+        <div class="emoji">💌</div><b>A little reminder</b>
+        <div class="reveal">You matter. Even when you don't say much. Even when you disappear into your own world. Even when you think nobody notices. I notice more than you know. 🫶</div>
+      </div>
+      <div class="gift" onclick="openGift(this);createHearts(5)">
+        <div class="emoji">🧸</div><b>Emergency comfort</b>
+        <div class="reveal">Whenever life gets too loud, imagine a tiny Huzy sitting beside you like: “Okay. Breathe. We can figure it out.” Yes, I'm annoying. But I'm here. 😭</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="burst();nextPage()">I opened everything. What now? →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Chapter 05 • Care package 🫂</div>
+    <h2 class="gradient">Things I genuinely want for you.</h2>
+    <p class="sub">Click each wish to turn it from “birthday text” into “Huzy actually means this.”</p>
+
+    <div class="grid-2" style="margin-top:26px">
+      <div class="card glow" onclick="toggleCard(this)"><div class="icon">🧠</div><h3>For your mind</h3><p class="extra">I hope you stop being so hard on yourself. You don't have to have everything figured out immediately.</p></div>
+      <div class="card glow" onclick="toggleCard(this)"><div class="icon">❤️</div><h3>For your heart</h3><p class="extra">I hope you receive love that doesn't make you question whether you're wanted. You deserve warmth, honesty, and patience.</p></div>
+      <div class="card glow" onclick="toggleCard(this)"><div class="icon">💼</div><h3>For your future</h3><p class="extra">I hope the things you work toward actually start working out. May your effort meet opportunity at the right time.</p></div>
+      <div class="card glow" onclick="toggleCard(this)"><div class="icon">😂</div><h3>For your inner idiot</h3><p class="extra">Please never lose your ability to be silly. Life needs people who can turn a boring moment into absolute nonsense.</p></div>
+    </div>
+
+    <div class="actions">
+      <button onclick="nextPage()">I have more tiny notes for you →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page">
+  <div class="panel center">
+    <div class="pill">Chapter 06 • The little love jar 💌</div>
+    <h2 class="gradient">10 notes I wanted you to find.</h2>
+    <p class="sub">Tap each card to unfold a tiny thought. Some are sweet. Some are embarrassing. One or two are extremely Huzy. 😭</p>
+
+    <div class="jar" id="jar">
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 1</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 2</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 3</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 4</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 5</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 6</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 7</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 8</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 9</div>
+      <div class="note locked" onclick="unlockNote(this)">🔒 Note 10</div>
+    </div>
+
+    <div class="mini" id="noteCount" style="margin-top:17px">0 / 10 opened</div>
+
+    <div class="actions">
+      <button id="jarNext" class="hide" onclick="nextPage()">All ten? Come here, I have a secret. 🤫</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page">
+  <div class="panel center">
+    <div class="pill">Chapter 07 • Secret page 🤫💗</div>
+    <h2 class="gradient">You found the hidden feeling.</h2>
+    <p class="sub">
+      There are some things that don't fit neatly into a “happy birthday” sentence.
+      Especially when the person you're wishing has been both a beautiful memory and a very real part of your present.
+    </p>
+
+    <button onclick="showSecret()">Open the secret message 💌</button>
+
+    <div class="secret" id="secret">
+      <div class="secret-box">
+        <p>
+          Oxy, I don't want to reduce whatever we are to labels just for the sake of having one.
+          I care about <i>you</i>. I care about whether you're okay, whether you're smiling, whether something is bothering you,
+          whether you feel alone, whether you are proud of yourself, and whether the people around you are treating your heart gently.
+        </p>
+        <p>
+          We have already proved that our story can survive distance, arguments, silence, breakups, and way too much drama.
+          What I hope for now is something softer: more understanding, more honesty, more patience, more laughter,
+          fewer unnecessary wars, and more moments where neither of us has to wonder whether the other person cares.
+        </p>
+        <p style="margin-bottom:0;font-weight:900">And yes… somewhere in all of that, there's still a little “maybe us?” hiding between the lines. 💜</p>
+      </div>
+    </div>
+
+    <div class="actions" style="justify-content:center">
+      <button onclick="nextPage()">Now let's test the Huzy effect →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 9 -->
+<section class="page">
+  <div class="panel center">
+    <div class="pill">Chapter 08 • Huzy's impossible slider 😂</div>
+    <h2 class="gradient">How much birthday attention do you want?</h2>
+    <p class="sub">Be honest. The slider is scientifically accurate. Probably.</p>
+
+    <div class="slider-wrap">
+      <input id="attentionSlider" type="range" min="0" max="100" value="50" oninput="slideAttention(this.value)">
+      <div class="slider-result" id="attentionText">50% — acceptable. suspiciously normal. 👀</div>
+    </div>
+
+    <div class="big-heart" style="font-size:6rem;margin-top:30px" onclick="megaLittleBurst()">💗</div>
+
+    <div class="message-box">
+      <span id="careLine">No matter what the slider says, I hope you know you deserve to be celebrated today.</span>
+    </div>
+
+    <div class="actions">
+      <button onclick="nextPage()">Okay okay… one final chapter. 💌</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 10 -->
+<section class="page">
+  <div class="panel">
+    <div class="pill">Final Chapter • Read this slowly. 💜</div>
+    <h2 class="gradient">A really, really long birthday letter for Oxy.</h2>
+
+    <div class="letter">
+      <p><strong>Oxy, happy birthday. 💜</strong></p>
+
+      <p>
+        I could have written you a tiny message. “Happy birthday, Oxy. Hope you have a great day.” Done.
+        Easy. Normal. Simple. But you and I have never exactly been a simple story, have we?
+        So I wanted to make something that actually feels like you opened a little world made only for this day.
+      </p>
+
+      <p>
+        Somewhere inside all these buttons, hearts, gifts, stars, ridiculous little animations and dramatic words,
+        there is one very real thing: I genuinely care about you.
+        And because it is your birthday, I wanted you to feel that care instead of just seeing a sentence on your screen.
+      </p>
+
+      <p>
+        When I think about how we started, it still feels unreal.
+        You were from Pakistan. I was from India. We met in Blockman Go — of all places —
+        and somehow a random game became the doorway into a story that would end up carrying so many feelings.
+        We started talking there. We got comfortable. We joked. We got annoyed. We argued.
+        We made up. We fell apart. We came back. We tried again.
+        At different times we probably wondered whether it would actually last, whether we were too different,
+        whether the distance was too much, whether our personalities were too much,
+        or whether we were simply two stubborn people who had no idea what they were doing.
+      </p>
+
+      <p>
+        But even when everything went wrong, you were never just “some random person” to me.
+        You became a name I recognized instantly.
+        A notification that could change my mood.
+        A person I could be angry at and still miss.
+        A person I could argue with and still secretly hope would message again.
+        That says something.
+      </p>
+
+      <p>
+        And yes, we had our fights. A lot of them. 😭
+        Some were silly, some were serious, some were probably caused by two people who were overthinking everything,
+        and some were the kind where both of us were basically like, “I am absolutely NOT apologizing first.”
+        Looking back, I don't want to glorify those fights.
+        I want to remember what they taught us.
+        That feelings can become messy when people don't communicate.
+        That caring about someone doesn't automatically mean you know how to love them perfectly.
+        That sometimes people need patience more than they need another argument.
+        And that saying sorry, listening properly, and choosing kindness can matter more than proving who was right.
+      </p>
+
+      <p>
+        Then came the breakups.
+        More than once, we tried to end something that somehow kept finding its way back to life.
+        We said goodbye and then, somehow, there was another conversation.
+        There was another attempt.
+        Another “maybe.”
+        Another patch-up.
+        Another reason to keep the door open.
+        After what feels like millions of attempts, we're together again in some form,
+        and honestly, I don't take that for granted.
+      </p>
+
+      <p>
+        Before Instagram, before our conversations moved somewhere new, before the story expanded,
+        we were already carrying something from that original little game.
+        And when we finally switched to Instagram, it felt like taking something that started inside a game
+        and letting it exist in the real world.
+        We were no longer just two avatars talking.
+        We were two actual people with actual feelings, actual lives, actual moods, actual bad days,
+        and actual reasons to care whether the other person was okay.
+      </p>
+
+      <p>
+        I think that's one of the things I want to tell you most on your birthday:
+        I hope you are okay.
+        Not “okay” in the fake way people say it when they don't want to explain anything.
+        I mean genuinely okay.
+        I hope your mind gets quieter.
+        I hope the things that stress you out become easier to handle.
+        I hope you have someone to talk to when you need it.
+        I hope you don't keep every difficult feeling locked inside yourself.
+        I hope you remember that needing support does not make you weak.
+      </p>
+
+      <p>
+        I hope you take care of yourself too.
+        Eat when you're hungry.
+        Sleep when you're tired.
+        Rest before your body forces you to rest.
+        Laugh when something is funny.
+        Put your phone down sometimes.
+        Go outside.
+        Give yourself a break from trying to be everything for everyone.
+        You don't need to earn the right to feel okay.
+        You deserve ordinary happiness too.
+      </p>
+
+      <p>
+        I also hope you are proud of yourself this year.
+        Not only for huge achievements.
+        Be proud of the small ones.
+        The days you kept going.
+        The moments you handled something better than you would have before.
+        The times you chose not to give up.
+        The moments when you were kind even though you were tired.
+        The things nobody else saw.
+        Your progress counts even when it is quiet.
+      </p>
+
+      <p>
+        And since this is supposed to be a little romantic and a little playful too…
+        I hope you know there is still a part of me that smiles when I see your name.
+        There is still a part of me that remembers the version of us that could be ridiculously happy over the smallest thing.
+        There is still a part of me that thinks it is kind of cute that all this started in a game.
+        There is still a part of me that wants to tease you when you're being annoying.
+        And, unfortunately for you, there is definitely a part of me that still wants to care for you when you are having a bad day.
+      </p>
+
+      <p>
+        We were lovers once. Then we weren't.
+        We were strangers for moments. Then we found each other again.
+        We have changed. You have changed. I have changed.
+        Maybe what comes next won't look exactly like the past.
+        Maybe that's okay.
+        Maybe the best part of a second chance isn't recreating the old relationship.
+        Maybe it's creating something healthier with everything we learned from the first version.
+      </p>
+
+      <p>
+        I don't need to pretend that I know exactly where our story is going.
+        I don't.
+        But I know I am grateful that, after everything, I can be here wishing you happy birthday.
+        I am grateful that there is still a “we” somewhere in this story.
+        I am grateful that I can still make something silly and emotional and over-the-top for you
+        and genuinely mean every word underneath the drama.
+      </p>
+
+      <p>
+        So, Oxy, on your birthday, I wish you a year filled with things that feel real.
+        Real happiness.
+        Real laughter.
+        Real friendships.
+        Real growth.
+        Real opportunities.
+        Real peace.
+        And, selfishly, a few beautiful moments that somehow include me too. 🥺
+      </p>
+
+      <p>
+        I wish you mornings that don't feel heavy.
+        Nights that don't feel lonely.
+        Conversations that make you smile.
+        Music that hits at exactly the right time.
+        People who understand you without making you beg to be understood.
+        I wish you the courage to walk away from things that hurt you
+        and the wisdom to recognize the things worth holding onto.
+      </p>
+
+      <p>
+        I wish you success, but I also wish you balance.
+        I wish you ambition, but also rest.
+        I wish you confidence, but also softness.
+        I wish you strength, but also people with whom you never have to pretend to be strong.
+        I wish you every kind of happiness that doesn't need to be photographed to be real.
+      </p>
+
+      <p>
+        And I hope you never forget that your existence has touched someone else's life.
+        Mine.
+        For better, for worse, through every messy chapter, you mattered.
+        You still matter.
+        That's why this page is so long.
+        That's why I kept adding another button, another message, another memory, another stupid little heart.
+        Because “happy birthday” didn't feel big enough for everything I wanted to say.
+      </p>
+
+      <p>
+        Thank you for the memories.
+        Thank you for the laughter.
+        Thank you for every conversation that lasted longer than expected.
+        Thank you even for some of the arguments, because they became lessons.
+        Thank you for coming back.
+        Thank you for letting me come back.
+        Thank you for the weird little history that only makes sense when someone says,
+        “Wait… how did you two even meet?”
+        And we get to say, “Blockman Go.” 😭🎮
+      </p>
+
+      <p>
+        If this birthday brings you only one thing from me, let it be this:
+        you are cared for.
+        You don't have to perform for it.
+        You don't have to be perfect for it.
+        You don't have to win every day for it.
+        You can simply be Oxy — and that is enough for me to wish that your life becomes kinder, brighter and happier.
+      </p>
+
+      <p>
+        So happy birthday, Oxy.
+        Please smile today.
+        Laugh a lot.
+        Let yourself be spoiled a little.
+        Eat something nice.
+        Enjoy your day.
+        And somewhere between all the birthday wishes you get from everyone else,
+        I hope you remember this one from Huzy — the girl from India who met you in a game,
+        argued with you, loved you, lost you, found you again,
+        and still wanted to build you an entire birthday universe because apparently one little message was never going to be enough. 💜
+      </p>
+
+      <p>
+        Whatever the future decides to do with our story, I will always be grateful that once upon a time,
+        two people found each other in the most unexpected place.
+        And today, on your birthday, I am simply happy that I get to say:
+        <strong>I'm glad you exist, Oxy.</strong>
+      </p>
+
+      <p class="signature">
+        Happy Birthday, my Oxy. 🎂💜<br>
+        From your Huzy. 🫂✨<br>
+        <span style="font-size:.95rem;color:var(--muted);font-weight:600">
+          Your favorite headache • occasional enemy • accidental sweetheart • professional overthinker 😭
+        </span>
+      </p>
+    </div>
+
+    <div class="actions">
+      <button onclick="megaBurst();createHearts(35);createSparks(45)">🎉 One last HUGE birthday explosion 🎉</button>
+      <button class="secondary" onclick="goPage(0)">Replay from the beginning ↺</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="progress" id="progress">
+  <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const dots=[...document.querySelectorAll('.dot')];
+let page=0;
+
+/* Guaranteed first-screen navigation */
+document.getElementById('enterUniverseBtn').addEventListener('click', function(){
+  try {
+    burst();
+    createHearts(18);
+  } catch(e) {
+    console.log('Birthday effects skipped:', e);
+  }
+  goPage(1);
+});
+
+const notes=[
+ "Even after everything, your name can still make me smile. And yes, I'm blaming you for that. 😭💗",
+ "I hope you know you can talk to me without having the perfect words first.",
+ "You deserve people who don't make you beg for the bare minimum of care.",
+ "I still think our story is ridiculously cute for something that started in Blockman Go. 🎮",
+ "If today gets stressful, remember: birthdays are legally allowed to include extra cake. I checked. 🍰",
+ "You can be stubborn. I can be stubborn. Maybe this is why the universe gave us each other. 😭",
+ "I hope this year gives you more “I'm proud of myself” moments than “what am I doing?” moments.",
+ "There is a soft place in my heart that still has your name on it. Quietly. 💜",
+ "Thank you for finding your way back into my life.",
+ "Happy birthday, Oxy. No matter how dramatic this website is, the care underneath it is real."
+];
+
+function goPage(n){
+  page=Math.max(0,Math.min(pages.length-1,n));
+  pages.forEach((p,i)=>p.classList.toggle('active',i===page));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===page));
+  document.getElementById('prevBtn').disabled=page===0;
+  document.getElementById('nextBtn').disabled=page===pages.length-1;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function nextPage(){goPage(page+1)}
+function prevPage(){goPage(page-1)}
+goPage(0);
+
+function burst(){
+  for(let i=0;i<130;i++) addPiece(innerWidth/2,innerHeight*.23,1.15);
+  startConfetti();
+}
+function megaBurst(){
+  for(let i=0;i<330;i++) addPiece(Math.random()*innerWidth,-10,1.4);
+  startConfetti();
+}
+function megaLittleBurst(){miniBurst(innerWidth/2,innerHeight/2)}
+
+function miniBurst(x,y){
+  for(let i=0;i<36;i++) addPiece(x,y,.8);
+  startConfetti();
+}
+function heartExplosion(el){
+  const r=el.getBoundingClientRect();
+  miniBurst(r.left+r.width/2,r.top+r.height/2);
+  createHearts(12);
+  el.animate([
+    {transform:'scale(1) rotate(0deg)'},
+    {transform:'scale(1.3) rotate(-7deg)'},
+    {transform:'scale(1) rotate(0deg)'}
+  ],{duration:500,easing:'ease-out'});
+}
+
+function createHearts(count=10){
+  const layer=document.getElementById('heartsLayer');
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span');
+    s.className='float-heart';
+    s.textContent=['💗','💜','🩷','❤️','✨'][Math.floor(Math.random()*5)];
+    s.style.left=(Math.random()*100)+'vw';
+    s.style.top=(85+Math.random()*18)+'vh';
+    s.style.setProperty('--dx',((Math.random()-.5)*180)+'px');
+    s.style.animationDuration=(5+Math.random()*5)+'s';
+    s.style.animationDelay=(Math.random()*.8)+'s';
+    layer.appendChild(s);
+    setTimeout(()=>s.remove(),10000);
+  }
+}
+function createSparks(count=20){
+  const layer=document.getElementById('sparkLayer');
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span');
+    s.className='spark';
+    s.textContent=['✦','✧','⋆','·'][Math.floor(Math.random()*4)];
+    s.style.left=(Math.random()*100)+'vw';
+    s.style.top=(Math.random()*100)+'vh';
+    s.style.fontSize=(10+Math.random()*18)+'px';
+    s.style.opacity=.8;
+    s.style.animation='spark 2s ease-out forwards';
+    layer.appendChild(s);
+    setTimeout(()=>s.remove(),2200);
+  }
+}
+const style=document.createElement('style');
+style.textContent='@keyframes spark{0%{transform:scale(.2) rotate(0);opacity:0}25%{opacity:1}100%{transform:scale(1.8) rotate(150deg);opacity:0}}';
+document.head.appendChild(style);
+
+const canvas=document.getElementById('confettiCanvas');
+const ctx=canvas.getContext('2d');
+let pieces=[];
+let raf=null;
+function resizeCanvas(){
+  const dpr=devicePixelRatio||1;
+  canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;
+  canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+addEventListener('resize',resizeCanvas);resizeCanvas();
+
+const palette=['#ff76b8','#ffd56a','#9b7aff','#75d9ff','#8df3c7','#ffffff'];
+function addPiece(x,y,power=1){
+  pieces.push({
+    x,y,
+    vx:(Math.random()-.5)*9*power,
+    vy:(Math.random()*-8-3)*power,
+    g:.16+Math.random()*.09,
+    rot:Math.random()*Math.PI*2,
+    vr:(Math.random()-.5)*.3,
+    size:5+Math.random()*7,
+    color:palette[(Math.random()*palette.length)|0],
+    life:75+Math.random()*70,
+    shape:Math.random()>.52?'rect':'circle'
+  });
+}
+function startConfetti(){
+  if(raf)return;
+  const frame=()=>{
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    pieces.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.995;p.rot+=p.vr;p.life--;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.color;
+      if(p.shape==='rect')ctx.fillRect(-p.size/2,-p.size/3,p.size,p.size*.66);
+      else{ctx.beginPath();ctx.arc(0,0,p.size*.42,0,Math.PI*2);ctx.fill();}
+      ctx.restore();
+    });
+    pieces=pieces.filter(p=>p.life>0&&p.y<innerHeight+50);
+    if(pieces.length)raf=requestAnimationFrame(frame);
+    else{raf=null;ctx.clearRect(0,0,innerWidth,innerHeight)}
+  };
+  raf=requestAnimationFrame(frame);
+}
+
+function openGift(el){
+  el.classList.toggle('open');
+  if(el.classList.contains('open')){
+    const r=el.getBoundingClientRect();miniBurst(r.left+r.width/2,r.top+r.height/2);
+  }
+}
+function toggleCard(card){
+  card.classList.toggle('glow');
+  card.classList.toggle('selected');
+}
+document.querySelectorAll('.extra').forEach(p=>p.style.display='block');
+
+function pickMood(el,mood){
+  document.querySelectorAll('.mood').forEach(m=>m.classList.remove('active'));
+  el.classList.add('active');
+  const messages={
+    happy:"Then stay happy, birthday boy. Laugh loudly today and let yourself enjoy being celebrated. You don't have to act cool for one day. 😌🎂",
+    soft:"Come here. 🫂 Today you don't have to be tough. You can be soft, tired, emotional, loved, and completely yourself.",
+    chaos:"Absolutely not. 😭 Please behave on your birthday. Or don't. I already know you won't. Happy birthday, menace. 💥",
+    tired:"Then rest. Seriously. You deserve a day where nobody expects you to solve everything. Drink water, breathe, sleep, repeat. 🌙",
+    romantic:"Oh? 👀 So you picked this one yourself. Interesting. I only have one thing to say: I'm glad our story somehow still has a heartbeat. 💗",
+    curious:"Fine. Here's the truth: I care about you way more than a normal birthday website should probably admit. There. You happy now? 😭💌"
+  };
+  document.getElementById('moodMessage').textContent=messages[mood];
+  miniBurstAt(el);
+}
+function miniBurstAt(el){
+  const r=el.getBoundingClientRect();
+  miniBurst(r.left+r.width/2,r.top+r.height/2);
+}
+
+let opened=0;
+function unlockNote(el){
+  const idx=[...document.querySelectorAll('.note')].indexOf(el);
+  if(el.classList.contains('unlocked')){
+    el.textContent=notes[idx];
+    return;
+  }
+  el.classList.remove('locked');el.classList.add('unlocked');
+  el.textContent=notes[idx];
+  opened++;
+  document.getElementById('noteCount').textContent=opened+' / 10 opened';
+  miniBurstAt(el);
+  if(opened===10){
+    document.getElementById('jarNext').classList.remove('hide');
+    burst();
+  }
+}
+
+function showSecret(){
+  document.getElementById('secret').classList.add('show');
+  createHearts(16);
+  burst();
+}
+
+function slideAttention(v){
+  v=Number(v);
+  let msg,care;
+  if(v<20){msg=v+"% — pretending you don't need attention. suspicious. 😶";care='Even at 0%, you still deserve love and good wishes today.'}
+  else if(v<40){msg=v+'% — shy little birthday boy mode. 🥺';care='Okay, okay. Small amount of attention. But the care is still 100%.'}
+  else if(v<60){msg=v+'% — perfectly balanced. respectable. 😌';care='A reasonable amount of birthday love. I approve.'}
+  else if(v<80){msg=v+'% — ah. There it is. You secretly like being spoiled. 😭';care='Fine. Have extra affection, extra wishes, and extra cake.'}
+  else{msg=v+'% — FULL HUzy MODE. You asked for this. 💗';care='At this level, you are receiving illegal amounts of care, hugs, and emotional support.'}
+  document.getElementById('attentionText').textContent=msg;
+  document.getElementById('careLine').textContent=care;
+}
+
+// Initial gentle atmosphere
+setTimeout(()=>{createHearts(8);createSparks(14)},500);
+
+// Keyboard navigation
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')nextPage();
+  if(e.key==='ArrowLeft')prevPage();
+});
+</script>
+</body>
+</html>
